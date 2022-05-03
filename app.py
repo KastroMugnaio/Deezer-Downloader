@@ -48,7 +48,7 @@ def download ():
             else:
                 dl_click()
             bck = driver.find_element_by_link_text("Back to search")
-            time.sleep(2)
+            time.sleep(1)
             bck.click()
             print(line.strip() ,"downloaded")
 
