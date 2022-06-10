@@ -7,3 +7,5 @@ Example: Drake - Girls Want Girls
 
 
 Warranty: I'm not responsible of your use of this tool! 
+
+If you have any problem don't hesitate to open an issue  
