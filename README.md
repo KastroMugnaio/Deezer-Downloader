@@ -2,11 +2,11 @@
  This tool permits you to download from deezer at 320k by using free-mp3-download.net site
 
 # **Usage**
-You need to put in "songlist.txt" the name of your artist and the song name 
+-**Run the tool in a folder**
+-When you run for the first time the tool will download ublock extension (adblock)
+-After you need to put in "songlist.txt" the name of your artist and the song name 
 Example: Drake - Girls Want Girls
-
-# THE FIRST TIME THAT YOU RUN THE TOOL WILL BE DOWNLOADED THE ADBLOCK 
-
+**NOTE: YOU NEED TO CHECK RECAPTCHA ONLY THE FIRST SONG**
 
 Warranty: I'm not responsible of your use of this tool! 
 
