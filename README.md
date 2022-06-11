@@ -5,7 +5,11 @@
 You need to put in "songlist.txt" the name of your artist and the song name 
 Example: Drake - Girls Want Girls
 
+# THE FIRST TIME THAT YOU RUN THE TOOL WILL BE DOWNLOADED THE ADBLOCK 
+
 
 Warranty: I'm not responsible of your use of this tool! 
 
 If you have any problem don't hesitate to open an issue  
+
+
