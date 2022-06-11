@@ -1,10 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+
 import os , time
 
 
 filename = "songlist.txt"
+
 
 def getublock():
     s = Service(ChromeDriverManager().install())
@@ -19,22 +22,22 @@ def getublock():
     driver.close()
 
 def dl_click():
-    dl_button = driver.find_element_by_xpath("//button[text()='Download']")
+    dl_button = driver.find_element(By.XPATH, "//button[text()='Download']")
     driver.implicitly_wait(1.5)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     dl_button.click()
 
 def download ():
     c = 0
-    with open(filename) as fp:
+    with open(filename, encoding='utf-8') as fp:
         Lines = fp.readlines()
         for line in Lines:
             c += 1
             time.sleep(2)
-            driver.find_element_by_class_name('input').clear()
+            driver.find_element(By.CLASS_NAME, 'input').clear()
             time.sleep(1)
-            search_box = driver.find_element_by_class_name("input")
-            search_button = driver.find_element_by_id("snd")
+            search_box = driver.find_element(By.CLASS_NAME, "input")
+            search_button = driver.find_element(By.ID, "snd")
             query = line.strip()
             search_box.send_keys(query)
             time.sleep(1)
@@ -44,10 +47,13 @@ def download ():
             if c == 1 :
                 time.sleep(10)
                 dl_click()
+                c += 1
                 time.sleep(5)
             else:
                 dl_click()
-            bck = driver.find_element_by_link_text("Back to search")
+                c += 1
+                time.sleep(1)
+            bck = driver.find_element(By.LINK_TEXT, "Back to search")
             time.sleep(1)
             bck.click()
             print(line.strip() ,"downloaded")
@@ -55,7 +61,7 @@ def download ():
 
 def start_script():
     driver.get("https://free-mp3-download.net")
-    vpn_check = driver.find_element_by_xpath(".//*[contains(text(), 'Search using our VPN')]")
+    vpn_check = driver.find_element(By.XPATH, ".//*[contains(text(), 'Search using our VPN')]")
     vpn_check.click()
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     download()
