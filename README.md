@@ -10,7 +10,7 @@
 Example: Drake - Girls Want Girls
 
 
-**NOTE: YOU NEED TO CHECK RECAPTCHA ONLY THE FIRST SONG**
+**NOTE: YOU NEED TO CHECK RECAPTCHA ONLY FOR THE FIRST SONG**
 
 Warranty: I'm not responsible of your use of this tool! 
 
