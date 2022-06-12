@@ -12,8 +12,16 @@ Example: Drake - Girls Want Girls
 
 **NOTE: YOU NEED TO CHECK RECAPTCHA ONLY FOR THE FIRST SONG**
 
-Warranty: I'm not responsible of your use of this tool! 
+## To-Do List
 
-If you have any problem don't hesitate to open an issue  
+- [ ] Add FLAC Option
+
+## **⚠️ATTENTION⚠️**
+
+I'm not responsible of your use of this tool! 
+
+If you have any problem don't hesitate to open an issue
+
+
 
 
