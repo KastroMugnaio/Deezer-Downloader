@@ -1,1 +1,2 @@
-Artist Song
+PLEASE RESPECT THIS FORMAT "ARTIST - SONG" WITHOUT PUTTING "(feat. ArtistX)" OR THE TOOL WILL NOT WORK PROPERLY 
+EX: Drake - Girls Want Girls without putting "(with Lil Baby)"
