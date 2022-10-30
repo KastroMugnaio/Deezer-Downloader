@@ -14,7 +14,7 @@ Example: Drake - Girls Want Girls
 
 ## To-Do List
 
-- [ ] Add FLAC Option
+- [x] Add FLAC Option
 
 ## **⚠️ATTENTION⚠️**
 
