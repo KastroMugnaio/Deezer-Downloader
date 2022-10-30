@@ -1,9 +1,11 @@
+import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
 
-import os , time
+import os , time, glob
 
 
 filename = "songlist.txt"
@@ -27,6 +29,17 @@ def dl_click():
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     dl_button.click()
 
+def quality_click():
+    driver.implicitly_wait(1.5)
+    if quality == "1" :
+        mp3_click = driver.find_element(By.ID, "mp3")
+        actions = ActionChains(driver)
+        actions.move_to_element(mp3_click).click().perform()
+    elif quality == "2" :
+        flac_click = driver.find_element(By.ID, "flac")
+        actions = ActionChains(driver)
+        actions.move_to_element(flac_click).click().perform()
+
 def download ():
     c = 0
     with open(filename, encoding='utf-8') as fp:
@@ -45,14 +58,17 @@ def download ():
             time.sleep(2)
             dl_click()
             if c == 1 :
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                quality_click()
                 time.sleep(10)
                 dl_click()
                 c += 1
                 time.sleep(5)
             else:
+                quality_click()
                 dl_click()
                 c += 1
-                time.sleep(1)
+                time.sleep(5)
             bck = driver.find_element(By.LINK_TEXT, "Back to search")
             time.sleep(1)
             bck.click()
@@ -70,12 +86,20 @@ def start_script():
 
 if __name__ == "__main__":
     print("!!! REMEMBER: YOU NEED TO CHECK CAPTCHA EVERY 15 MINUTES !!!")
-    time.sleep(3)
     dir = os.getcwd()
-    path = dir + "\extension_1_42_4_0.crx"
-    if os.path.isfile(path):
+    getlatest = glob.glob(dir + '/*')  # * means all if need specific format then *.csv
+    latest_file = max(getlatest, key=os.path.getctime)
+    print(latest_file)
+    time.sleep(2)
+    if latest_file.endswith('.crx'):
+        quality = input("Insert 1 for MP3 or 2 for FLAC: ")
+        try:
+            int(quality)
+        except:
+            print("You haven't inserted an integer number, please re-run the tool")
+            sys.exit()
         options = webdriver.ChromeOptions()
-        options.add_extension("extension_1_42_4_0.crx")
+        options.add_extension(latest_file)
         options.add_argument('--lang=en')
         s = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=s, chrome_options=options)
