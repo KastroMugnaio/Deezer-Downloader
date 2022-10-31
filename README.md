@@ -1,5 +1,5 @@
 # Deezer-Downloader
- This tool permits you to download from deezer at 320k by using free-mp3-download.net site
+ This tool permits you to download from deezer in MP3 or FLAC via free-mp3-download.net site
 
 # **Usage**
 -**Run the tool in a folder**
