@@ -32,13 +32,17 @@ def dl_click():
 def quality_click():
     driver.implicitly_wait(1.5)
     if quality == "1" :
-        mp3_click = driver.find_element(By.ID, "mp3")
+        click_finder = driver.find_element(By.ID, "mp3-128")
         actions = ActionChains(driver)
-        actions.move_to_element(mp3_click).click().perform()
+        actions.move_to_element(click_finder).click().perform()
     elif quality == "2" :
-        flac_click = driver.find_element(By.ID, "flac")
+        click_finder = driver.find_element(By.ID, "mp3-320")
         actions = ActionChains(driver)
-        actions.move_to_element(flac_click).click().perform()
+        actions.move_to_element(click_finder).click().perform()
+    elif quality == "2":
+        click_finder = driver.find_element(By.ID, "flac")
+        actions = ActionChains(driver)
+        actions.move_to_element(click_finder).click().perform()
 
 def download ():
     c = 0
@@ -92,7 +96,7 @@ if __name__ == "__main__":
     print(latest_file)
     time.sleep(2)
     if latest_file.endswith('.crx'):
-        quality = input("Insert 1 for MP3 or 2 for FLAC: ")
+        quality = input("Insert 1 for MP3 (128k), 2 MP3 (320k) or 3 for FLAC: ")
         try:
             int(quality)
         except:
